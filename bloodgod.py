@@ -161,16 +161,6 @@ async def unmute_member(user_id):
 
 @bot.command()
 async def sacrifice(ctx, target: discord.Member):
-    """
-    During an active sacrifice period, this command mutes the caller for 10 minutes 
-    and the target for 5 minutes (removing all non-ignored roles and storing them).
-
-    Restrictions:
-      - Caller cannot sacrifice themselves.
-      - Target must not be already muted.
-      - If target is protected, respond "Don't even try." and mute the caller for 10 minutes.
-      - Additionally, the caller (of a sacrifice) will have the April Fools role restored on unmute.
-    """
     global active_sacrifice, sacrifice_timer_task
 
     if not active_sacrifice:
@@ -221,7 +211,7 @@ async def sacrifice(ctx, target: discord.Member):
         sacrifice_timer_task.cancel()
         sacrifice_timer_task = None
 
-# ---------------- Modified process_mute ----------------
+# --------------------------------
 
 async def process_mute(member, duration, guild, muted_role, april_fools_flag=0):
     """
@@ -283,6 +273,7 @@ async def sacrifice_announcement_loop():
 # ---------------- Debug Feature ----------------
 
 @bot.command()
+@commands.has_role("Loser 😂")
 async def debugdrop(ctx):
     """
     Debug command: instantly triggers a sacrifice announcement.
@@ -312,10 +303,6 @@ async def debugdrop(ctx):
 @bot.command()
 @commands.has_role("Loser 😂")
 async def say(ctx, *, message: str):
-    """
-    Makes the bot say the provided message in the active channel (defined by CHANNEL_ID),
-    regardless of where the command was used.
-    """
     # Retrieve the guild using the hard-locked guild ID.
     guild = bot.get_guild(GUILD_ID)
     if guild is None:
@@ -335,11 +322,6 @@ async def say(ctx, *, message: str):
 @bot.command()
 @commands.has_role("Loser 😂")
 async def soul(ctx, target: discord.Member):
-    """
-    Soul command: when invoked in any channel, this command causes the bot to announce in the main channel:
-       "YOUR SOUL BELONGS TO ME [@target]"
-    Then, only the target is muted for 10 minutes by removing their roles and storing them in the database.
-    """
     # Retrieve the guild and main channel using your configuration.
     guild = bot.get_guild(GUILD_ID)
     if guild is None:
@@ -394,4 +376,4 @@ async def on_ready():
             delay = 0
         bot.loop.create_task(schedule_unmute(user_id, delay))
 
-bot.run('')
+bot.run('MTM1NjQ4NTA4MTQ5NzIxMDkzMQ.GoEG17.cELigQwTgRgxi6NMGmGACHlj7sSEh7OmvQ3-CM')
