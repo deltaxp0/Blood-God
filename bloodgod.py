@@ -376,4 +376,4 @@ async def on_ready():
             delay = 0
         bot.loop.create_task(schedule_unmute(user_id, delay))
 
-bot.run('MTM1NjQ4NTA4MTQ5NzIxMDkzMQ.GoEG17.cELigQwTgRgxi6NMGmGACHlj7sSEh7OmvQ3-CM')
+bot.run('')
