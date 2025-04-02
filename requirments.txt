@@ -1,0 +1,5 @@
+discord.py
+asyncio
+sqlite3
+random
+datetime
