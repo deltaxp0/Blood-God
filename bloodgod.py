@@ -10,12 +10,10 @@ from datetime import datetime, timedelta, timezone
 GUILD_ID             = 876189935382704210  
 MUTE_ROLE_ID         = 965349651119243294   
 CHANNEL_ID           = 876189935827288127    
-APRIL_FOOLS_ROLE_ID  = 1356358749811642478    # April Fools 2025 role ID
+APRIL_FOOLS_ROLE_ID  = 000000000000000000    # April Fools 2025 role ID
 
 # Role IDs that are "too powerful" to be sacrificed. >>>> ADD STAFF HERE!! <<<<
-IGNORE_ROLE_IDS      = [876195007428718652, 1024089071674462239, 939348486338543636, 
-                        1268581309794750506, 1270827058930647171, 1263514885636227153, 
-                        876195144733429791, 954046716619948072 ]
+IGNORE_ROLE_IDS      = []
 
 # ---------------- Bot Setup ----------------
 
